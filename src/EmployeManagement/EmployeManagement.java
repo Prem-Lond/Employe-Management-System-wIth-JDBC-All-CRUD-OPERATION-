@@ -162,6 +162,40 @@ public class EmployeManagement {
 		}
 
 	}
+	public void SearchDataInDatabaseManager(int id) throws Exception {
+
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/emp", "root", "premz@514.");
+
+		PreparedStatement ps = con.prepareStatement("select * from man where id=(?)");
+
+		ResultSet rs = ps.executeQuery();
+		System.out.println("Manager List ->");
+		while (rs.next()) {
+			System.out.println("Id     : " + rs.getInt(1));
+			System.out.println("Name   : " + rs.getString(2));
+			System.out.println("Salary : " + rs.getDouble(3));
+			System.out.println("--------------------------------");
+
+		}
+
+	}
+	public void SearchDataInDatabaseDeveloper(int id) throws Exception {
+
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/emp", "root", "premz@514.");
+
+		PreparedStatement ps = con.prepareStatement("select * from dev where id=(?)");
+
+		ResultSet rs = ps.executeQuery();
+		System.out.println("Developer List ->");
+		while (rs.next()) {
+			System.out.println("Id     : " + rs.getInt(1));
+			System.out.println("Name   : " + rs.getString(2));
+			System.out.println("Salary : " + rs.getDouble(3));
+			System.out.println("--------------------------------");
+
+		}
+
+	}
 
 	public void updateNameDeveloper(int id, String name) throws Exception {
 
